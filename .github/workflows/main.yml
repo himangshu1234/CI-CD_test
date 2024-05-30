@@ -69,7 +69,7 @@ jobs:
           pwd
           cat deployment.yaml
           pwd
-          sed -i "s+himangshu12/cicd.*+himangshu12/cicd:app-$RUN_NUMBER+g" deployment.yaml
+          perl -pi -e 's+himangshu12/cicd.*+himangshu12/cicd:app-$ENV{"RUN_NUMBER"}+g' deployment.yaml
           cat deployment.yaml
           git add .
           git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
